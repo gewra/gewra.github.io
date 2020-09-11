@@ -152,6 +152,7 @@ aside {
 .text {
   margin: 16px 22px;
   font-size: 16px;
+  line-height: 1.5;
 }
 
 .text.dark-gray {
