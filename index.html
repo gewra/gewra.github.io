@@ -1,58 +1,88 @@
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Miltons spionkalas">
-    <meta name="keywords" content="Miltons spionkalas">
-    <meta name="author" content="Gustaf Eriksson Segerdorf">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Miltons Agentkalas!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Diplomata+SC&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/main.css">
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h2>
-          Topphemligt uppdrag och kalasinbjudan
-        </h2>
-        <div class="mug-shot">
-          <div class="top-secret">
-            <img src="topsecret.png" alt="Top secret!">
-          </div>
-          <img src="milton.jpg" alt="Agent Milton">
-          <strong>Agent Milton S.<br> Status: Okänt<br>Uppdrag: Födelsedagsbarn</strong>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Miltons spionkalas">
+  <meta name="keywords" content="Miltons spionkalas">
+  <meta name="author" content="Gustaf Eriksson Segerdorf">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Miltons Agentkalas!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bigshot+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/main.css">
+</head>
+
+<body>
+  <div id="anchor"></div>
+  <button id="replay" onclick="location.reload()">Ladda om meddelandet</button>
+  <div class="container">
+    <header>
+      <h2 class="title">
+        Topphemligt uppdrag och kalasinbjudan
+      </h2>
+      <div class="mug-shot">
+        <div class="top-secret">
+          <img src="topsecret.png" alt="Top secret!">
         </div>
-      </header>
-      <main>
-        <aside>
+        <img src="milton.jpg" alt="Agent Milton">
+        <strong>Agent Milton S.<br> Status: Okänt<br>Uppdrag: Födelsedagsbarn</strong>
+      </div>
+    </header>
+    <main>
+      <aside>
 
-        </aside>
-        <div>
-          <strong class="text">Agent!</strong>
-          <p class="text">
-            Som en av världens bästa agenter så är du önskad att vara med på firandet av agent Miltons 5-års dag.
-          </p>
-
-          <p class="text">
-            Ditt uppdrag skall utföras den <strong>10 / 10 - 2020 kl: 13.00 - 15.00</strong>
-
-          </p>
-          
-          <p class="text">
-            Agenternas mötesplats är i Ekhagen, stora scenen 
-          </p>
-        </div>
-      </main>
-      <footer>
-        <p class="text small">
-          Detta meddelande kommer att självförstöras inom 2 minuter. Det kommer bjudas på kalasfika och
+      </aside>
+      <div>
+        <strong class="text">Agent!</strong>
+        <p class="text">
+          Som en av världens bästa agenter så är du önskad att vara med på firandet av agent Miltons 5-års dag.
         </p>
-      </footer>
 
-    </div>
-      <div class="searchlight left"></div>
-<div class="right searchlight"></div>
-  </body>
+        <p class="text">
+          Ditt uppdrag skall utföras den <strong>10 / 10 - 2020 kl: 13.00 - 15.00</strong>
+
+        </p>
+
+        <p class="text">
+          Agenternas mötesplats är i Ekhagen, stora scenen
+        </p>
+      </div>
+    </main>
+    <footer>
+      <p class="text small">
+        Det kommer att bjudas på fika till både agenter och föräldrar som väljer att stanna kvar.
+      </p>
+      <p class="text small">Då vi är utomhus kan det vara bra att tänka på varma kläder och eventuellt regnkläder. </p>
+      <p class="text red center">Detta meddelande kommer att självförstöras om: <span id="timer">2:00</span></p>
+    </footer>
+
+  </div>
+
+
+  <div class="searchlight left"></div>
+  <div class="searchlight right"></div>
+
+  <script>
+    var timer = document.querySelector("#timer");
+    var container = document.querySelector(".container");
+    var replayButton = document.querySelector("#replay");
+    var seconds = 120;
+    var interval = setInterval(function () {
+      seconds -= 1;
+      var minutes = parseInt(seconds / 60);
+      var formattedSeconds = seconds % 60 < 10 ? "0" + seconds % 60 : seconds % 60;
+      timer.innerHTML = minutes + ":" + formattedSeconds;
+      if (seconds <= 0) {
+        container.classList.add("destroy")
+        clearInterval(interval);
+          document.querySelector("#anchor").scrollIntoView({ behavior: "smooth" });
+        setTimeout(function() {
+          replayButton.classList.add("reveal");
+        }, 5000);
+      }
+    }, 1000);
+  </script>
+</body>
+
 </html>

@@ -20,16 +20,16 @@ body {
   align-items: center;
   box-sizing: border-box;
   font-family: 'Press Start 2P', cursive;
+  margin: 0;
 }
 
 h1,h2,h3,h4 {
   margin: 0;
-  font-family: 'Diplomata SC', cursive;
+  font-family: 'Bigshot One', cursive;
 }
 
 .container {
   width: 800px;
-  max-width: 100%;
   background-color: var(--white-color);
   padding: 0;
   -webkit-box-shadow: 10px 10px 36px 0px rgba(0,0,0,0.75);
@@ -38,6 +38,13 @@ h1,h2,h3,h4 {
   display: flex;
   flex-direction: column;
   position: relative;
+  transition: all 5s;
+}
+
+.container.destroy {
+  transform: skew(90deg, 90deg);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .container::after {
@@ -47,7 +54,7 @@ h1,h2,h3,h4 {
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.2);
 }
 
 header {
@@ -57,14 +64,19 @@ header {
   align-items: center;
 }
 
-header h2 {
+.title {
   flex: 1;
-  margin: 50px
+  margin: 50px;
+  font-size: 3.5rem;
 }
 
 main {
   display: flex;
   flex-direction: row;
+  padding: 24px;
+}
+
+footer {
   padding: 24px;
 }
 
@@ -107,20 +119,28 @@ aside {
   font-size: 10px;
 }
 
-
-
-.stamp {
-  font-family: 'Diplomata SC', cursive;
-  color: var(--red-color);
-  border: 5px solid var(--red-color);
-  transform: rotate(270deg);
-  transform-origin: left;
-  
-  padding: 0;
-  margin-top: 200px;
-  font-size: 36px;
-  text-align: center;
+#replay {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  background-color: var(--white-color);
+  padding: 16px 24px;
+  border-radius: 4px;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transition: 3s all;
 }
+
+#replay.reveal {
+  opacity: 1;
+  pointer-events: all;
+}
+
 
 .text {
   margin: 16px 22px;
@@ -136,6 +156,45 @@ aside {
   color: var(--gray-color);
 }
 
+.text.red {
+  color: var(--red-color);
+}
+
+.text.center {
+  text-align: center;
+}
+
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+  header {
+    flex-direction: column;
+  }
+
+  main {
+    padding: 48px 18px 0;
+  }
+
+  .title {
+    text-align: center;
+    margin: 16px 16px 50px;
+  }
+  .mug-shot {
+    margin: 0 auto;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  .title {
+    font-size: 2rem;
+  }
+  .top-secret {
+    left: -50px;
+  }
+}
 
 
 
@@ -147,6 +206,7 @@ aside {
   left: 0;
   right: 0;
   bottom: 0;
+  transform: scale(2);
 }
 
 .left {
