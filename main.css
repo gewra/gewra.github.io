@@ -23,7 +23,7 @@ body {
   margin: 0;
 }
 
-h1,h2,h3,h4 {
+.title {
   margin: 0;
   font-family: 'Bigshot One', cursive;
 }
@@ -39,12 +39,16 @@ h1,h2,h3,h4 {
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: all 5s;
   min-height: fit-content;
+  transition: all 3s ease-in;
+  -webkit-transform: rotate3d(0);
+  transform: rotate3d(0);
+  opacity: 1;
 }
 
 .container.destroy {
-  transform: skew(90deg, 90deg);
+  -webkit-transform: rotate3d(1, 1, 1, 179deg) scale(0.3);
+  transform: rotate3d(1, 1, 1, 179deg) scale(0.3);
   opacity: 0;
   pointer-events: none;
 }
@@ -57,6 +61,7 @@ h1,h2,h3,h4 {
   right: 0;
   left: 0;
   background-color: rgba(0,0,0,0.2);
+  pointer-events: none;
 }
 
 header {
@@ -148,6 +153,9 @@ aside {
   pointer-events: all;
 }
 
+h3.text {
+  font-size: 24px;
+}
 
 .text {
   margin: 16px 22px;
@@ -172,6 +180,10 @@ aside {
   text-align: center;
 }
 
+strong.text {
+  font-weight: bolder;
+}
+
 
 @media screen and (max-width: 800px) {
   .container {
@@ -193,6 +205,9 @@ aside {
   .mug-shot {
     margin: 0 auto;
   }
+  .mug-shot strong {
+    font-size: 8px;
+  }
 
 }
 
@@ -203,6 +218,7 @@ aside {
   .top-secret {
     left: -50px;
   }
+
 }
 
 
@@ -216,6 +232,7 @@ aside {
   right: 0;
   bottom: 0;
   transform: scale(2);
+  pointer-events: none;
 }
 
 .left {

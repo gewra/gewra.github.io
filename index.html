@@ -25,8 +25,8 @@
         <div class="top-secret">
           <img src="topsecret.png" alt="Top secret!">
         </div>
-        <img src="milton.jpg" alt="Agent Milton">
-        <strong>Agent Milton S.<br> Status: Okänt<br>Uppdrag: Födelsedagsbarn</strong>
+        <img src="milton.png" alt="Agent Milton">
+        <strong>Agent Milton S.<br> Status: Okänt<br>Uppdrag: Kalas</strong>
       </div>
     </header>
     <main>
@@ -34,19 +34,24 @@
 
       </aside>
       <div>
-        <strong class="text">Agent!</strong>
+        <h3 class="text">Agent!</h3>
         <p class="text">
-          Som en av världens bästa agenter så är du önskad att vara med på firandet av agent Miltons 5-års dag.
+          Eftersom du är en av världens bästa agenter så önskar vi att du kan vara med på firandet av agent Miltons 5-års dag
         </p>
 
         <p class="text">
-          Ditt uppdrag skall utföras den <strong>10 / 10 - 2020 kl: 13.00 - 15.00</strong>
-
+          Detta uppdrag utföres:<br><strong>Datum: 10/10-2020<br>Kl: 13.00 - 15.00</strong>
         </p>
 
         <p class="text">
           Agenternas mötesplats är i Ekhagen, stora scenen
         </p>
+
+        <p class="text">
+          Skulle du välja att acceptera detta uppdrag, o.s.a till agent Miltons <a href="mailto:eriksson.gustaf@gmail.com">pappa</a>
+        </p>
+
+
       </div>
     </main>
     <footer>
@@ -63,7 +68,14 @@
   <div class="searchlight left"></div>
   <div class="searchlight right"></div>
 
+  <audio id="mi_audio" loop>
+    <source src="missionimpossible.wav">
+</audio>
+
   <script>
+    window.onload = function() {
+      var audioEl = document.getElementById("mi_audio").play();
+    }
     var timer = document.querySelector("#timer");
     var container = document.querySelector(".container");
     var replayButton = document.querySelector("#replay");
