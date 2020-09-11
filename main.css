@@ -29,6 +29,7 @@ h1,h2,h3,h4 {
 }
 
 .container {
+  height: 100%;
   width: 800px;
   background-color: var(--white-color);
   padding: 0;
@@ -77,6 +78,7 @@ main {
   flex-direction: row;
   padding: 24px;
   min-height: fit-content;
+  flex:1;
 }
 
 footer {
